@@ -24,15 +24,13 @@ public class UnionTest
 	}
 	
 	@Test
-	public void testListaConNulls() {
-		a.add(1);
+	public void testListWithNull() {
 		a.add(null);
 		b.add(1);
 		
 		Vector c = new Vector();
-		c.add(1);
 		c.add(null);
 		c.add(1);
-		assertTrue("No funciona con nulls en las listas", c.equals(Union.union(a, b)));
+		assertTrue("Contiene null", c.equals(Union.union(a, b)));
 	}
 }
