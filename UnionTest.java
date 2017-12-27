@@ -34,20 +34,53 @@ public class UnionTest
 		assertTrue("Contiene null", c.equals(Union.union(a, b)));
 	}
 	
-    @Test
-    public void testJustOnceEachElement()
-    {
-        a.addElement(1);
-        a.addElement(2);
-        a.addElement(3);
-        b.addElement(1);
-        b.addElement(2);
+	@Test
+	public void testJustOnceEachElement()
+	{
+		a.addElement(1);
+		a.addElement(2);
+		a.addElement(3);
+		b.addElement(1);
+		b.addElement(2);
 
+		Vector c = new Vector();
+		c.addElement(1);
+		c.addElement(2);
+		c.addElement(3);
+
+		assertTrue("Mismo elemento en dos vectores distintos", c.equals(Union.union(a, b)));
+	}
+    
+	@Test (expected = NullPointerException.class)
+	public void testListNull() {
+		a = null;
+		b.addElement(null);
+		Union.union(a, b);
+	}
+	
+	@Test
+	public void testDifferentTypes() {
+		a.add(1);
+		a.add(2);
+		a.add('a');
+		b.add('b');
+		
         Vector c = new Vector();
-        c.addElement(1);
-        c.addElement(2);
-        c.addElement(3);
-
-        assertTrue("Mismo elemento en dos vectores distintos", c.equals(Union.union(a, b)));
-    }
+		c.add(1);
+		c.add(2);
+		c.add('a');
+		c.add('b');
+		assertTrue("Distintos tipos de elementos en vectores", c.equals(Union.union(a, b)));
+	}
+	
+	@Test
+	public void testDoubleElement() {
+		a.add(1);
+		b.add(2);
+		
+	    Vector c = new Vector();
+		c.add(1);
+		c.add(2);
+		assertTrue("Double Element Vector", c.equals(Union.union(a, b)));
+	}
 }
