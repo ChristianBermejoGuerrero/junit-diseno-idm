@@ -17,8 +17,23 @@ public class Union {
 	 *			classes / types
 	 * @throws	NullPointerException If a or b is null
 	 */
-	public static Vector union (Vector a, Vector b){
-		return null;
 	
+	public static Vector union (Vector a, Vector b){
+		if (a == null || b == null) {
+			throw new NullPointerException();
+		}
+		Vector v1 = new Vector();
+		
+		for(Object e : a) {
+			if (!v1.contains(e)){
+				v1.add(e);
+			}
+		}
+		for(Object e : b) {
+			if (!v1.contains(e)){
+				v1.add(e);
+			}
+		}
+		return v1;
 	}
 }
