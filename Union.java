@@ -36,4 +36,20 @@ public class Union {
 		}
 		return v1;
 	}
+	
+	// UNIONSET
+	
+	public static Set unionSet (Set a, Set b) {
+		if (a == null || b == null) {
+			throw new NullPointerException();
+		}
+		Set s1 = new HashSet();
+		for(Object e : a) {
+			s1.add(e);
+		}
+		for(Object e : b) {
+			s1.add(e);
+		}
+		return s1;
+	}
 }
