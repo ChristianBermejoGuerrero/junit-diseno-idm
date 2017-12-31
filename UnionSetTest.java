@@ -74,4 +74,15 @@ public class UnionSetTest {
 		assertTrue("Distintos tipos de elementos en set", c.equals(Union.unionSet(a, b)));
 	}
 	
+	@Test
+	public void testDoubleElement() {
+		a.add(1);
+		b.add(2);
+		
+	    Set c = new HashSet();
+		c.add(1);
+		c.add(2);
+		assertTrue("Double Element Vector", c.equals(Union.unionSet(a, b)));
+	}
+	
 }
