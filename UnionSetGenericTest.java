@@ -66,5 +66,17 @@ public class UnionSetGenericTest {
 		b.add(null);
 		Union.unionSetGeneric(a, b);
 	}
+		
+	@Test
+	public void testDoubleElement() {
+		a.add(1);
+		b.add(2);
+		
+	    Set c = new HashSet<Integer>();
+		c.add(1);
+		c.add(2);
+		assertTrue("Double Element Vector", c.equals(Union.unionSetGeneric(a, b)));
+	}
+	
 	
 }
