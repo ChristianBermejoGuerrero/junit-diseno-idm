@@ -51,5 +51,27 @@ public class UnionSetTest {
 
         assertTrue("Mismo elemento en dos vectores distintos", c.equals(Union.unionSet(a, b)));
     }
+    
+	@Test (expected = NullPointerException.class)
+	public void testListNull() {
+		a = null;
+		b.add(null);
+		Union.unionSet(a, b);
+	}
+	
+	@Test
+	public void testDifferentTypes() {
+		a.add(1);
+		a.add(2);
+		a.add('a');
+		b.add('b');
+		
+        Set c = new HashSet();
+		c.add(1);
+		c.add(2);
+		c.add('a');
+		c.add('b');
+		assertTrue("Distintos tipos de elementos en set", c.equals(Union.unionSet(a, b)));
+	}
 	
 }
