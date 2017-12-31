@@ -43,4 +43,28 @@ public class UnionSetGenericTest {
 		assertTrue("Set contiene null", c.equals(Union.unionSetGeneric(a, b)));
 	}
 	
+	@Test
+    public void testJustOnceEachElement()
+    {
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        b.add(1);
+        b.add(2);
+
+        Set c = new HashSet<Integer>();
+        c.add(1);
+        c.add(2);
+        c.add(3);
+
+        assertTrue("Mismo elemento en dos sets distintos", c.equals(Union.unionSetGeneric(a, b)));
+    }
+    
+	@Test (expected = NullPointerException.class)
+	public void testListNull() {
+		a = null;
+		b.add(null);
+		Union.unionSetGeneric(a, b);
+	}
+	
 }
