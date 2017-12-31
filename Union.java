@@ -52,4 +52,25 @@ public class Union {
 		}
 		return s1;
 	}
+	
+	/** UNIONSETGENERIC
+	* Ten en cuenta los cambios que implica usar Set<E> en lugar de Set
+	* respecto a la clase de los elementos que pueden almacenarse en a y b.
+	* Piensa en particular en si pueden almacenarse elementos de diversas clases,
+	* si pueden almacenarse tipos primitivos (Integer).
+	*/
+	
+	public static <E> Set<E> unionSetGeneric (Set<? extends E> a, Set<? extends E> b){
+		if (a == null || b == null) {
+			throw new NullPointerException();
+		}
+		Set<E> s1 = new HashSet<E>();
+		for(Object e : a) {
+			s1.add((E) e);
+		}
+		for(Object e : b) {
+			s1.add((E) e);
+		}
+		return s1;
+	}	
 }
