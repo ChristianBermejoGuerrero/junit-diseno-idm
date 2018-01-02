@@ -44,21 +44,21 @@ public class UnionSetGenericTest {
 	}
 	
 	@Test
-    public void testJustOnceEachElement()
-    {
-        a.add(1);
-        a.add(2);
-        a.add(3);
-        b.add(1);
-        b.add(2);
+	public void testJustOnceEachElement()
+	{
+		a.add(1);
+		a.add(2);
+		a.add(3);
+		b.add(1);
+		b.add(2);
 
-        Set c = new HashSet<Integer>();
-        c.add(1);
-        c.add(2);
-        c.add(3);
+		Set c = new HashSet<Integer>();
+		c.add(1);
+		c.add(2);
+		c.add(3);
 
-        assertTrue("Mismo elemento en dos sets distintos", c.equals(Union.unionSetGeneric(a, b)));
-    }
+		assertTrue("Mismo elemento en dos sets distintos", c.equals(Union.unionSetGeneric(a, b)));
+	}
     
 	@Test (expected = NullPointerException.class)
 	public void testListNull() {
@@ -77,6 +77,4 @@ public class UnionSetGenericTest {
 		c.add(2);
 		assertTrue("Double Element Vector", c.equals(Union.unionSetGeneric(a, b)));
 	}
-	
-	
 }
