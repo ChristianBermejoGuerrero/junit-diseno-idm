@@ -26,4 +26,36 @@ public class BoundedQueueTest {
 		queue.enQueue("foo");
 		queue.enQueue("bar");
 	}
+	
+	@Test 
+	public void testC4()
+	{
+		BoundedQueue queue = new BoundedQueue(2);
+		queue.enQueue("foo");
+		queue.enQueue("bar");
+		queue.deQueue();
+	}
+	
+	@Test(expected=IllegalStateException.class)
+	public void testC5()
+	{
+		BoundedQueue queue = new BoundedQueue(2);
+		queue.deQueue();
+	}
+	
+	@Test()
+	public void testC6()
+	{
+		BoundedQueue queue = new BoundedQueue(1);
+		assertTrue(queue.isEmpty());
+	}
+	
+	@Test()
+	public void testC7()
+	{
+		BoundedQueue queue = new BoundedQueue(2);
+		queue.enQueue("foo");
+		queue.enQueue("bar");
+		assertTrue(queue.isFull());
+	}
 }
